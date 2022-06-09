@@ -2,7 +2,6 @@
 
 ### A simple text based file manager inspired by powershell file manager
 
-<div>
+
 ### Some notes
-* To make text colors work you will need to set Dword value of "VirtualTerminalLevel" to 1 in Console section inside Registry editor
-</div>
+*To make text colors work you will need to set Dword value of "VirtualTerminalLevel" to 1 in Console section inside Registry editor
