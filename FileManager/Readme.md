@@ -4,4 +4,4 @@
 
 
 ### Some notes
-*To make text colors work you will need to set Dword value of "VirtualTerminalLevel" to 1 in Console section inside Registry editor
+**To make text colors work you will need to set Dword value of "VirtualTerminalLevel" to 1 in Console section inside Registry editor
