@@ -212,9 +212,10 @@ class FileManager {
             }
         } else {
             File newDir = new File(currentDirectory.getAbsolutePath() + "/" + dir);
-            if (dir.substring(0, fileUrl.length()).equals(fileUrl)) {
+            if (dir.charAt(1) == ':') {
                 newDir = new File(dir);
             }
+
             if (!newDir.exists() || newDir.isHidden()) {
                 Debug.Println("Directory does not exist or is not accessible", Debug.messageType.ERROR);
                 return;
@@ -246,7 +247,8 @@ class FileManager {
 public class Main {
     public static void main(String[] args) {
          FileManager manager = new FileManager();
-         manager.setStartDirectory("C:/");
+         // set this to whatever directory you want to start from
+         manager.setStartDirectory("C:/Users/USER");
          manager.Start();
         
     }
