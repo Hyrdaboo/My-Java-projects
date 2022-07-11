@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import java.awt.Desktop;
 
 class Debug {
     private static final String TEXT_RESET = "\u001B[0m";
@@ -62,6 +62,7 @@ class FileManager {
         "mkdir - create directory",
         "sc - show content of a file",
         "del - remove file",
+        "sysexp - show current directory in system explorer",
         "exit - exit from program",
     };
 
@@ -101,6 +102,9 @@ class FileManager {
                         break;
                     }
                     MakeDirectory(input);
+                    break;
+                case "sysexp":
+                    showInExplorer(currentDirectory.getAbsolutePath());
                     break;
                 case "sc":
                     if (input.split(" ").length == 1) {
@@ -166,6 +170,15 @@ class FileManager {
             Debug.Println("Directory created", Debug.messageType.INFO);
         } else {
             Debug.Println("Error creating directory", Debug.messageType.ERROR);
+        }
+    }
+
+    private void showInExplorer(String directory) {
+        try {
+            Desktop.getDesktop().open(currentDirectory);
+        } catch (IOException e) {
+            Debug.Print("A critical error occured", Debug.messageType.ERROR);
+            e.printStackTrace();
         }
     }
 
@@ -247,7 +260,6 @@ class FileManager {
 public class Main {
     public static void main(String[] args) {
          FileManager manager = new FileManager();
-         // set this to whatever directory you want to start from
          manager.setStartDirectory("C:/Users/USER");
          manager.Start();
         
